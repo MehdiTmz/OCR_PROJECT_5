@@ -23,6 +23,19 @@ h2 {
       align-self: center;
 }
 
+.Main-film-container {
+  width: 40em;
+  height: 20em;
+  margin: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Main-film-container img {
+  max-width: 100%;
+  height: auto;
+}
+
 .scrollmenu {
   -ms-overflow-style: none;
   /* IE and Edge */
@@ -182,13 +195,18 @@ img {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: black;
   margin: 15% auto;
   /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
+  border-radius: 25px;
   width: 80%;
   /* Could be more or less, depending on screen size */
+}
+
+.modal-content p {
+  color: white;
 }
 
 /* The Close Button */
