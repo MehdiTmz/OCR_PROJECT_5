@@ -53,7 +53,14 @@ async function getResponse(url, item, main = false, best_categorie = false) {
         .then(function(value) {
           console.log(value);
           if (main){
-            document.getElementsByClassName("Main-film-container")[0].style = "background-image: url('" + value.results[0]["image_url"]+"')";        
+            var main_container = document.getElementsByClassName("Main-film-container");
+            main_container[0].style = "background-image: url('" + value.results[0]["image_url"]+"')";
+            main_container[0].getElementsByClassName("Main-button")[0].onclick = function click(){
+              document.getElementById("myModal").style.display = "block";
+              test(value.results[0]['id'])
+              
+            }
+
           }
           image_table = document.getElementsByClassName(item)
           if (best_categorie){
@@ -61,6 +68,7 @@ async function getResponse(url, item, main = false, best_categorie = false) {
             image_table[1].src = value.results[2]["image_url"]
             image_table[2].src = value.results[3]["image_url"]
             image_table[3].src = value.results[4]["image_url"]
+            best_film_cat_modal(item, value.results)
           }
           else {
             charge_image(item, value.results);
@@ -93,6 +101,7 @@ async function getResponse_2(url, item, best_categorie = false) {
             image_table[5].src = value.results[1]["image_url"]
             image_table[6].src = value.results[2]["image_url"]
             best_film_modif_modal(item, value.results)
+
           }
           else {
             charge_image_2(item, value.results);
@@ -126,6 +135,35 @@ function best_film_cat_modal(btn_name, data){
   
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
+      // When the user clicks on the buttons, open the modal
+      btn[0].onclick = function click(){
+        modal.style.display = "block";
+          display_modal_text(modal, data[1]);
+          test([data[1]['id']])
+        }
+    
+        btn[1].onclick = function click(){
+        modal.style.display = "block";
+          display_modal_text(modal, data[2]);
+          test([data[2]['id']])
+        }
+    
+        btn[2].onclick = function click(){
+          modal.style.display = "block";
+          display_modal_text(modal, data[3]);
+          test([data[3]['id']])
+        }
+    
+        btn[3].onclick = function click(){
+          modal.style.display = "block";
+          display_modal_text(modal, data[4]);
+          test([data[4]['id']])
+        }
+    
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
   
 }
 function test_modal(btn_name, data){
