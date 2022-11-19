@@ -30,6 +30,8 @@ h2 {
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("");
+  background-size: 400px 350px;
+  background-position: center;
 }
 
 .Main-film-container img {
